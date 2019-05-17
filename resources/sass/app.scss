@@ -1,0 +1,23 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar {
+  margin-bottom: 30px !important;
+}
+
+.nav-item.cta {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+#sign-up-btn {
+  padding: 10px;
+  width: 150px;
+}
