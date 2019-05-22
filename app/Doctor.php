@@ -10,9 +10,16 @@ class Doctor extends Authenticatable implements CanResetPassword
 {
     use \Illuminate\Auth\Passwords\CanResetPassword, Notifiable;
     protected $guarded = [];
+    protected $hidden = ['pivot'];
 
     public function appointments()
     {
         return $this->hasMany(Appointment::class);
+    }
+
+    public function workingHours()
+    {
+        return $this->belongsToMany(WorkingHour::class, 'doctor_working_hours', 'doctor_id')
+            ->pluck('time');
     }
 }

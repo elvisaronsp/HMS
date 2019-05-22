@@ -1,23 +1,70 @@
-
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 .navbar {
-  margin-bottom: 30px !important;
+    margin-bottom: 30px !important;
 }
 
 .nav-item.cta {
-  margin-left: 5px !important;
-  margin-right: 5px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
 }
 
 #sign-up-btn {
-  padding: 10px;
-  width: 150px;
+    padding: 10px;
+    width: 150px;
+}
+
+.button .appoint-radio {
+    display: none;
+}
+
+.appoint-radio:checked + div {
+    background: #b8f0b8f2;
+    color: #fff;
+}
+
+.free-hour-label {
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding-top: 13%;
+}
+
+.free-hour {
+    &.button {
+        display: inline-block;
+    }
+
+    margin-right: 25px;
+}
+
+.time.card {
+    width: 100px;
+    height: 50px;
+    border: none !important;
+}
+
+.card {
+    border: none !important;
+}
+
+.wrapper-card {
+    padding: 30px;
+    border: none;
+}
+
+.appoint-check-btn {
+    margin-top: 20px;
+}
+
+.reserve-btn {
+    margin-left: 2.5%;
+    margin-top: 1%
 }

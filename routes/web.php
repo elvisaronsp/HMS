@@ -14,9 +14,9 @@ Route::get('/test', function() {
 });
 Route::group(['prefix' => 'user'], function () {
     Route::get('/dashboard', 'UserController@index')->name('user.dashboard')->middleware('verified');
-    Route::get('/appointments', 'UserController@showAppointmentForm')->name('user.appointments');
-    Route::post('/appointments/check/date', 'UserController@checkFreeTimesByDate')->name('user.check.date');
-
+    Route::get('/appointments', 'AppointmentController@showAppointmentForm')->name('user.appointment.show');
+    Route::post('/appointments/check/date', 'AppointmentController@checkFreeTimesByDate')->name('user.appointment.check.date');
+    Route::post('/appointments/reserve', 'AppointmentController@reserve')->name('user.make.reservation');
 });
 
 Route::group(['prefix' => 'doctor'], function () {
