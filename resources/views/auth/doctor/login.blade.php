@@ -7,9 +7,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="shadow p-3 mb-5 bg-white rounded">
+            <div class="shadow p-3 mb-5 bg-white rounded login-card">
 
                 <div class="card-body">
+                    <p class="centered-title">Log in as Doctor</p>
+
                     <form method="POST" action="/doctor/login">
                         @csrf
 

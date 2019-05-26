@@ -51,8 +51,23 @@
     border: none !important;
 }
 
+.login-card {
+    margin-top: 50px !important;
+}
+
 .card {
+    &.register {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important;
+        border-radius: 10px !important;
+    }
     border: none !important;
+}
+
+.centered-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 50px;
 }
 
 .wrapper-card {
@@ -66,5 +81,5 @@
 
 .reserve-btn {
     margin-left: 2.5%;
-    margin-top: 1%
+    margin-top: 1%;
 }

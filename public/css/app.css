@@ -10706,8 +10706,24 @@ a.text-dark:focus {
   border: none !important;
 }
 
+.login-card {
+  margin-top: 50px !important;
+}
+
 .card {
   border: none !important;
+}
+
+.card.register {
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
+  border-radius: 10px !important;
+}
+
+.centered-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 50px;
 }
 
 .wrapper-card {

@@ -4,12 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="shadow p-3 mb-5 bg-white rounded">
+            <div class="shadow bg-white rounded login-card">
 
                 <div class="card-body">
+                    <p class="centered-title">Log in as User</p>
+                    
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+                        
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
