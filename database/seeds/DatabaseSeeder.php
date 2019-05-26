@@ -11,6 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        ## independent seeds
+        factory(App\Specialty::class, 5)->create();
+
+        $this->call([
+            BloodTypeSeeder::class,
+            WorkingHourSeeder::class,
+            CustomUserSeeder::class
+        ]);
+
+        # dependent seeds
+        factory(App\User::class, 5)->create();
+        factory(App\Doctor::class, 5)->create();
     }
 }

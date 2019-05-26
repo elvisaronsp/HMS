@@ -64,14 +64,14 @@
                 <h1 class="mb-4">The most valuable thing is your Health</h1>
                 <p>We care about your health Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
 
+                @if(!Auth::guard('doctor')->check() || Auth::guard('web')->check())
                     <a href="/register">
                         <button type="button" class="btn btn-outline-light" style="padding: 10px;width: 150px;">
-                        Sign Up
+                            Sign Up
                         </button>
-
                     </a>
-
-
+                @endif
+                
             </div>
         </div>
     </div>

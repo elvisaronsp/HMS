@@ -9,6 +9,7 @@ class WorkingHour extends Model
     protected $table = 'working_hours';
     protected $guarded = [];
     protected $hidden = ['pivot'];
+    public $timestamps = false;
 
     public function doctors()
     {
