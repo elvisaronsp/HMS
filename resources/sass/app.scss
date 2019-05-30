@@ -55,6 +55,34 @@
     margin-top: 50px !important;
 }
 
+.dashboard-card {
+    width: 60%;
+    margin-right: 3%;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.calendar-card {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#caleandar {
+    padding-top: 8% !important;
+}
+ 
+.treatment-heading, .diagnosis-heading {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.treatment-icon {
+    height: 60px;
+    fill: red;
+}
+
 .card {
     &.register {
         margin-top: 50px !important;
@@ -70,6 +98,43 @@
     margin-bottom: 50px;
 }
 
+.heading {
+    margin-bottom: 1.5em;
+}
+
+.history-card {
+    margin-bottom: 25px;
+}
+
+.history-wrapper p {
+    margin: 0;
+}
+
+.history-heading {
+    font-size: 1.5em;
+}
+
+.history-time, .history-date {
+    text-align: center;
+}
+
+.history-link {
+    button {
+        :hover {
+            color: #167CE9;
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: white; 
+        }      
+    } 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .wrapper-card {
     padding: 30px;
     border: none;
@@ -77,6 +142,20 @@
 
 .appoint-check-btn {
     margin-top: 20px;
+}
+
+.appointment-date {
+    font-size: 1.5em;
+    display: inline-block;
+}
+
+.appointment-time {
+    display: inline-block;
+    position: absolute;
+    font-size: 0.75em;
+    padding-bottom: 1em;
+    top: 67%;
+    left: 45%;
 }
 
 .reserve-btn {

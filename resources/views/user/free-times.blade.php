@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
 
-                <div class="card wrapper-card shadow-sm">
+                <div class="card wrapper-card shadow">
                     <h3>Free Doctors & Times for {{ \Carbon\Carbon::create($queryDate)->toFormattedDateString() }}</h3>
 
                     <form method="POST" action="{{ route('user.make.reservation') }}">
@@ -16,7 +16,7 @@
 
                         @foreach($doctorsWithFreeHours as $doctor)
                             <div class="card-body" id="{{ $doctor['id'] }}">
-                                <p>{{ $doctor['name'] }}</p>
+                                <p>{{ $doctor['name'] }} {{ $doctor['surname'] }}</p>
 
                                 @foreach($doctor['freeHours'] as $freeHour)
                                     <div class="free-hour button">

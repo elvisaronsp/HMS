@@ -10,11 +10,16 @@ class Appointment extends Model
 
     public function users()
     {
-        $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function doctors()
+    public function doctor()
     {
-        $this->belongsToMany(Doctor::class);
+        return $this->belongsTo(Doctor::class, 'doctor_id');
+    }
+
+    public function prescription()
+    {
+        return $this->hasOne(Prescription::class, 'appointment_id');
     }
 }

@@ -12,11 +12,15 @@ Auth::routes(['verify' => true]);
 Route::get('/test', function() {
     dd(Auth::user());
 });
+
 Route::group(['prefix' => 'user'], function () {
     Route::get('/dashboard', 'UserController@index')->name('user.dashboard')->middleware('verified');
     Route::get('/appointments', 'AppointmentController@showAppointmentForm')->name('user.appointment.show');
     Route::post('/appointments/check/date', 'AppointmentController@checkFreeTimesByDate')->name('user.appointment.check.date');
     Route::post('/appointments/reserve', 'AppointmentController@reserve')->name('user.make.reservation');
+
+    Route::get('/medical-history', 'MedicalHistoryController@index')->name('user.medical.history');
+    Route::get('/prescription/{id}', 'PrescriptionController@show');
 });
 
 Route::group(['prefix' => 'doctor'], function () {

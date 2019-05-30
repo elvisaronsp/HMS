@@ -14,12 +14,16 @@ class Doctor extends Authenticatable implements CanResetPassword
 
     public function appointments()
     {
-        return $this->hasMany(Appointment::class);
+        return $this->hasMany(Appointment::class, 'doctor_id');
     }
 
     public function workingHours()
     {
-        return $this->belongsToMany(WorkingHour::class, 'doctor_working_hours', 'doctor_id')
-            ->pluck('time');
+        return $this->belongsToMany(WorkingHour::class, 'doctor_working_hours', 'doctor_id')->pluck('time');
+    }
+
+    public function specialty()
+    {
+        return $this->belongsTo(Specialty::class, 'specialty_id');
     }
 }

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="card wrapper-card shadow-sm">
+                <div class="card wrapper-card shadow">
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('user.appointment.check.date') }}">

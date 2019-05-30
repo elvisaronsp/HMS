@@ -53,13 +53,15 @@ class AppointmentController extends Controller
             $doctorsWithFreeHours[] = [
                 'id' => $doctor->id,
                 'name' => $doctor->name,
+                'surname' => $doctor->surname,
+                'avatar' => $doctor->image,
                 'freeHours' => $filteredHours
             ];
         }
         ## get query date
         $queryDate = $request->date;
         ## return response
-        return view('user.free-times', compact('doctorsWithFreeHours','queryDate'));
+        return view('user.free-times', compact('doctorsWithFreeHours', 'queryDate'));
     }
 
     /*

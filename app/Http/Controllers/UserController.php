@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 class UserController extends Controller
 {
     /**
@@ -19,6 +22,20 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.dashboard');
+        ## fetch single upcoming user appointments
+        $upcomingAppointment = Auth::user()
+            ->appointments()
+            ->where('date', '>=', Carbon::now())
+            ->with('doctor', 'doctor.specialty')
+            ->first();
+
+        ## fetch all future user appointments
+        $futureAppointments = Auth::user()
+            ->appointments()
+            ->where('date', '>=', Carbon::now())
+            ->with('doctor', 'doctor.specialty')
+            ->get();
+        
+        return view('user.dashboard', compact('upcomingAppointment', 'futureAppointments'));
     }
 }
