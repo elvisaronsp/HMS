@@ -62,6 +62,24 @@
     border-radius: 5px;
 }
 
+.patient-profile-card {
+    p {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+    
+    width: 30%;
+    padding: 33px;
+    border-radius: 5px;
+}
+
+.patient-profile-info {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
 .calendar-card {
     padding: 20px;
     border-radius: 5px;

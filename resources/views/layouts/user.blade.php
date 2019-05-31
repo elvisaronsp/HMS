@@ -13,7 +13,7 @@
                     <li class="nav-item active"><a href="/user/dashboard" class="nav-link">Dashboard</a></li>
                     <li class="nav-item"><a href="/user/appointments" class="nav-link">Appointments</a></li>
                     <li class="nav-item"><a href="/user/medical-history" class="nav-link">Medical History</a></li>
-                    <li class="nav-item"><a href="doctor.html" class="nav-link">Consult</a></li>
+                    <li class="nav-item"><a href="/user/consult" class="nav-link">Consult</a></li>
                     
                     
                     <li class="nav-item cta">
