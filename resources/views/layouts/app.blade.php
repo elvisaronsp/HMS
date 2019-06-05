@@ -15,6 +15,7 @@
     <script src="{{ asset('js/custom.js') }}" defer></script>
     <script src="{{ asset('js/calendar.min.js') }}" defer></script>
     <script src="{{ asset('js/moment.min.js') }}" defer></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -36,6 +37,13 @@
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/calendar-theme.css') }}">
+
+    {{-- CDN --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+
+    <!-- Pusher CDN -->
+    <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
 </head>
 <body>
     <div id="app">

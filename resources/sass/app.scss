@@ -153,6 +153,66 @@
   justify-content: center;
 }
 
+.contact-card {
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+#chat-wrapper {
+    height:500px;
+    overflow:auto;
+    margin-bottom:15px;
+}
+
+#doctor-list-wrapper {
+    padding: 10px;
+    padding-right: 15px;
+    overflow: auto;
+    height: 620px;
+}
+
+.message-card {
+    display: block;
+    height: 100px;
+}
+
+.sent-box {
+    background: #167CE9;
+    width: auto;
+    left: 80%;
+    float: right;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 30%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.received-box {
+    background:#F2F4F5;
+    width: auto;
+    right: 80%;
+    float: left;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 30%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.chat-avatar {
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
+
+.contact-name {
+    margin-top: 13%;
+}
+
 .wrapper-card {
     padding: 30px;
     border: none;
