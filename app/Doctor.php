@@ -2,13 +2,15 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Auth\Passwords\CanResetPassword;
 
-class Doctor extends Authenticatable implements CanResetPassword
+class Doctor extends Authenticatable
 {
-    use \Illuminate\Auth\Passwords\CanResetPassword, Notifiable;
+    use CanResetPassword, Notifiable;
+
     protected $guarded = [];
     protected $hidden = ['pivot'];
 
@@ -25,5 +27,10 @@ class Doctor extends Authenticatable implements CanResetPassword
     public function specialty()
     {
         return $this->belongsTo(Specialty::class, 'specialty_id');
+    }
+
+    public function endorsements()
+    {
+        return $this->belongsToMany(User::class, 'endorsements')->using(Endorsement::class)->as('endorsement_taken');
     }
 }

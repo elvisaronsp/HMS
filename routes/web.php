@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('landing');
 })->name('welcome');
 
+Route::post('/auth', function() {
+    return response()->json(auth()->user());
+});
+
 Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'user'], function () {
@@ -41,5 +45,8 @@ Route::group(['prefix' => 'doctor'], function () {
         Route::post('/logout', 'Auth\DoctorAuthController@logout')->name('doctor.logout');
     });
 });
+
+// routes for vue API
+Route::post('/doctors', 'DoctorController@getDoctors');
 
 

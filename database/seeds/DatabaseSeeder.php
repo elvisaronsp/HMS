@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BloodTypeSeeder::class,
             WorkingHourSeeder::class,
-            CustomUserSeeder::class
+            CustomUserSeeder::class,
+            AdminSeeder::class
         ]);
 
         # dependent seeds

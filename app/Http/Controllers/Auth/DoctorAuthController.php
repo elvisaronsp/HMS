@@ -29,18 +29,18 @@ class DoctorAuthController extends Controller
 
      public function login(Request $request)
      {
-         if(Auth::guard('doctor')
-             ->attempt(
-                     [
-                         'email' => request('email'), 'password' => request('password')
-                     ]
-             )
-         )
-         {
-             return redirect()->intended(route('doctor.dashboard'));
-         } else {
-             return redirect()->back()->withInput($request->only('email'));
-         }
+        if(
+            Auth::guard('doctor')->attempt(
+                [
+                    'email' => request('email'), 'password' => request('password')
+                ]
+            )
+        )
+        {
+            return redirect()->intended(route('doctor.dashboard'));
+        } else {
+            return redirect()->back()->withInput($request->only('email'));
+        }
      }
 
     public function logout(Request $request)

@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-4">
+            <chat-app></chat-app>
+            {{-- <div class="col-4">
                 <div id="doctor-list-wrapper">
 
                     @foreach ($doctors as $doctor)
@@ -21,38 +22,12 @@
                     @endforeach
 
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="col-8">
-                <div id="chat-wrapper" class="shadow-sm">
-                    <div class="container message-card">
-                        <div class="sent-box">
-                            message which was sent. 
-                            message which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sent
-                        </div>
-                    </div>
-
-                    <div class="container message-card">
-                        <div class="received-box">
-                            message text which was received
-                        </div>
-                    </div>
-
-                    <div class="container message-card">
-                        <div class="sent-box">
-                            message which was sent. 
-                            message which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sent
-                        </div>
-                    </div>
-
-                    <div class="container message-card">
-                        <div class="sent-box">
-                            message which was sent. 
-                            message which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sentmessage which was sent
-                        </div>
-                    </div>
-                </div>
-                <div class="card typeing-box">
+            {{-- <div class="col-8">
+                <chat-app></chat-app> --}}
+                {{-- <chat-messages :messages="messages" :authUser="{{ Auth::user() }}"></chat-messages> --}}
+                {{-- <div class="card typeing-box">
                     <form method="POST" action="/messages">
                         @csrf
                         <div class="row">
@@ -68,7 +43,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> --}}
                 
             {{-- @foreach ($doctors as $doctor)
                 @if($loop->iteration % 4 == 0 )

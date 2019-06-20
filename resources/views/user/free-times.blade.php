@@ -18,17 +18,24 @@
                             <div class="card-body" id="{{ $doctor['id'] }}">
                                 <p>{{ $doctor['name'] }} {{ $doctor['surname'] }}</p>
 
-                                @foreach($doctor['freeHours'] as $freeHour)
-                                    <div class="free-hour button">
-                                        <input type="radio" class="appoint-radio" name="freeHour" value="{{ $freeHour }}" id="{{ $doctor['id'] }}{{ $loop->iteration }}" />
+                                @if(count($doctor['freeHours']) == 0)
+                                    <i class="far fa-calendar-times" style="font-size: 2em;"></i>
+                                
+                                @else
 
-                                        <div class="time card shadow-sm">
-                                            <label class="free-hour-label" for="{{ $doctor['id'] }}{{ $loop->iteration }}">
-                                                {{ Str::limit($freeHour, 5, '') }}
-                                            </label>
+                                    @foreach($doctor['freeHours'] as $freeHour)
+                                        <div class="free-hour button">
+                                            <input type="radio" class="appoint-radio" name="freeHour" value="{{ $freeHour }}" id="{{ $doctor['id'] }}{{ $loop->iteration }}" />
+
+                                            <div class="time card shadow-sm">
+                                                <label class="free-hour-label" for="{{ $doctor['id'] }}{{ $loop->iteration }}">
+                                                    {{ Str::limit($freeHour, 5, '') }}
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+
+                                @endif
                             </div>
                         @endforeach
 

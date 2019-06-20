@@ -33,14 +33,14 @@ class CustomUserSeeder extends Seeder
 
         if (!$customDoctor) {
             App\Doctor::insert([
-                'name' => 'Nika',
-                'surname' => 'Saralashvili',
+                'name' => 'Eddie',
+                'surname' => 'Dean',
                 'email' => 'g_gelashvili4@cu.edu.ge',
                 'password' => Hash::make('password'),
                 'about' => 'ლორემ იფსუმ',
                 'specialty_id' => rand(1, 5),
                 'phone' => '593757435',
-                'image' => 'http://www.iconninja.com/files/473/667/778/headset-person-man-avatar-support-male-young-icon.png'
+                'image' => 'https://myblue.bluecrossma.com/sites/g/files/csphws1461/files/inline-images/Doctor%20Image%20Desktop.png'
             ]);
         }
     }

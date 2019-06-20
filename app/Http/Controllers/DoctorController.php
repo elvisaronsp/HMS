@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Appointment;
+use App\Doctor;
 
 class DoctorController extends Controller
 {
@@ -19,7 +20,7 @@ class DoctorController extends Controller
             ->with('user')
             ->first();
 
-            
+        
         // return $upcomingAppointment;
         return view('doctor.dashboard', compact('upcomingAppointment'));
     }
@@ -44,5 +45,10 @@ class DoctorController extends Controller
             ->paginate(4);
         
         return view('doctor.archive', compact('archived'));
+    }
+
+    public function getDoctors()
+    {
+        return response()->json( Doctor::all());
     }
 }

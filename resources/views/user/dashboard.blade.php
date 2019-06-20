@@ -24,7 +24,7 @@
                                     </p>
 
                                     <p class="card-text appointment-time">
-                                        {{ $upcomingAppointment->date }}
+                                        {{ \Carbon\Carbon::parse($upcomingAppointment->date)->format('jS \o\f F Y')  }}
                                     </p>
 
                                     <p class="card-text appointment-date">

@@ -11,7 +11,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="{{ $upcomingAppointment->user->image }}" class="card-img" style="border-radius: 50%;">
+                                <img src="{{ $upcomingAppointment->user->avatar }}" class="card-img" style="border-radius: 50%;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body" style="margin-left: 15px;">
@@ -46,20 +46,24 @@
             <div class="shadow-lg patient-profile-card">
                 <div class="patient-profile-wrapper" >
                     <h3>Patient Profile</h3>
-                    <p>Age</p>
-                    <div class="border patient-profile-info">
-                        {{ \Carbon\Carbon::now()->diffInYears($upcomingAppointment->user->birthday) }}
-                    </div>
+                    @if($upcomingAppointment)
+                        <p>Age</p>
+                        <div class="border patient-profile-info">
+                            {{ \Carbon\Carbon::now()->diffInYears($upcomingAppointment->user->birthday) }}
+                        </div>
 
-                    <p>Gender</p>
-                    <div class="border patient-profile-info">
-                        {{ $upcomingAppointment->user->gender }}
-                    </div>
+                        <p>Gender</p>
+                        <div class="border patient-profile-info">
+                            {{ $upcomingAppointment->user->gender }}
+                        </div>
 
-                    <p>Phone</p>
-                    <div class="border patient-profile-info">
-                        {{ $upcomingAppointment->user->phone }}
-                    </div>
+                        <p>Phone</p>
+                        <div class="border patient-profile-info">
+                            {{ $upcomingAppointment->user->phone }}
+                        </div>
+                    @endif
+
+                    <!-- TODO: empty state -->
                 </div>
             </div>
             

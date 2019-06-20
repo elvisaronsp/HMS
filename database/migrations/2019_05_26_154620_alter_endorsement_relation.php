@@ -22,6 +22,7 @@ class AlterEndorsementRelation extends Migration
                 ->references('id')
                 ->on('doctors')
                 ->onDelete('cascade');
+            $table->unique(['user_id', 'doctor_id'], 'unique_endorsement');
         });
     }
 
