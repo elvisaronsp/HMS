@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Doctor;
+use Illuminate\Support\Facades\Auth;
 
 class ConsultController extends Controller
 {
-    public function index()
+    public function userView()
+    {  
+        return view('user.consult');
+    }
+    
+    public function doctorView()
     {
-        ## fetch all doctors
-        $doctors = Doctor::with('specialty')->get();
-
-        // return $doctors;
-        return view('user.consult', compact('doctors'));
+        return view('doctor.consult');
     }
 }

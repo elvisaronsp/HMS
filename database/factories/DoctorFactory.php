@@ -12,6 +12,6 @@ $factory->define(Doctor::class, function (Faker $faker) {
         'about' => $faker->text(191),
         'specialty_id' => rand(1, 5),
         'phone' => $faker->phoneNumber,
-        'image' => $faker->imageUrl('http://www.iconninja.com/files/473/667/778/headset-person-man-avatar-support-male-young-icon.png'), 
+        'avatar' => 'https://myblue.bluecrossma.com/sites/g/files/csphws1461/files/inline-images/Doctor%20Image%20Desktop.png', 
     ];
 });

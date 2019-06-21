@@ -10833,6 +10833,10 @@ a.text-dark:focus {
   height: 100px;
 }
 
+.selected .card {
+  background: #8080801f;
+}
+
 .sent-box {
   background: #167CE9;
   width: auto;

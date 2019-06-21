@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('landing');
 })->name('welcome');
 
-Route::post('/auth', function() {
+Route::get('/auth', function() {
     return response()->json(auth()->user());
 });
 
@@ -22,7 +22,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/medical-history', 'MedicalHistoryController@index')->name('user.medical.history');
     Route::get('/prescription/{id}', 'PrescriptionController@show');
 
-    Route::get('/consult', 'ConsultController@index');
+    Route::get('/consult', 'ConsultController@userView');
 });
 
 Route::group(['prefix' => 'doctor'], function () {
@@ -41,6 +41,7 @@ Route::group(['prefix' => 'doctor'], function () {
         Route::get( '/prescription/new/{id}', 'PrescriptionController@createForm')->name('doctor.show-form.prescription');
         Route::post('/prescription/create', 'PrescriptionController@create')->name('doctor.create.prescription');
         Route::get('/appointments/archive', 'DoctorController@archived')->name('doctor.appointments.archived');
+        Route::get('/consult', 'ConsultController@doctorView');
 
         Route::post('/logout', 'Auth\DoctorAuthController@logout')->name('doctor.logout');
     });
@@ -48,5 +49,7 @@ Route::group(['prefix' => 'doctor'], function () {
 
 // routes for vue API
 Route::post('/doctors', 'DoctorController@getDoctors');
-
+Route::get('/conversation/with/doctor/{contact_id}/{user_id}', 'ChatController@getMessagesForUser');
+Route::get('/conversation/with/user/{contact_id}/{doctor_id}', 'ChatController@getMessagesForDoctor');
+Route::get('/doctor/contacts/{id}', 'ChatController@getDoctorContacts');
 

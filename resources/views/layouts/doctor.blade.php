@@ -13,7 +13,7 @@
                     <li class="nav-item active"><a href="/doctor/dashboard" class="nav-link">Dashboard</a></li>
                     <li class="nav-item"><a href="/doctor/appointments" class="nav-link">Appointments</a></li>
                     <li class="nav-item"><a href="/doctor/appointments/archive" class="nav-link">Archive</a></li>
-                    <li class="nav-item"><a href="doctor.html" class="nav-link">Consult</a></li>
+                    <li class="nav-item"><a href="/doctor/consult" class="nav-link">Consult</a></li>
                     <li class="nav-item cta">
                         <a href="{{ route('doctor.logout') }}"
                            class="nav-link"

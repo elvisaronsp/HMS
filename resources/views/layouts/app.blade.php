@@ -51,13 +51,13 @@
 
 </head>
 <body>
-    <div id="app">
-            @yield('nav')
+    
+    @yield('nav')
 
-        <main>
-            @yield('content')
-        </main>
-    </div>
+    <main>
+        @yield('content')
+    </main>
+    
     
     @yield('js')
 </body>

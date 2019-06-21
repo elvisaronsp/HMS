@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <chat-app></chat-app>
+        <div id="app">
+
+        <chat-app :user="{{ auth()->user() }}"></chat-app>
             {{-- <div class="col-4">
                 <div id="doctor-list-wrapper">
 
@@ -62,13 +63,17 @@
             @endforeach --}}
 
             
+            </div>
         </div>
     </div>
 @endsection
 
 @section('js')
 <script>
-    new SimpleBar(document.getElementById('doctor-list-wrapper'));
-    new SimpleBar(document.getElementById('chat-wrapper'));
+    $(function() {
+        window.session = 'user'
+        new SimpleBar(document.getElementById('doctor-list-wrapper'));
+        new SimpleBar(document.getElementById('chat-wrapper'));
+    });
 </script>
 @endsection

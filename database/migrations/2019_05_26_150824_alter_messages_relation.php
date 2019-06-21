@@ -14,12 +14,12 @@ class AlterMessagesRelation extends Migration
     public function up()
     {
         Schema::table('messages', function (Blueprint $table) {
-            $table->foreign('sender_id')
+            $table->foreign('user_id')
                 ->references('id')
                 ->on('users')->onDelete('cascade');
-            $table->foreign('receiver_id')
+            $table->foreign('doctor_id')
                 ->references('id')
-                ->on('users')->onDelete('cascade');
+                ->on('doctors')->onDelete('cascade');
         });
     }
 

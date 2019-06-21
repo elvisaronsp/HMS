@@ -22,7 +22,7 @@ class CreateDoctors extends Migration
             $table->text('about');
             $table->integer('specialty_id')->unsigned();
             $table->string('phone');
-            $table->string('image');
+            $table->string('avatar');
             $table->timestamps();
         });
     }

@@ -9,13 +9,13 @@ class Message extends Model
 {
     protected $guarded = [];
 
-    public function sender()
+    public function user()
     {
-        $this->belongsTo(User::class, 'sender_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function receiver()
+    public function doctor()
     {
-        $this->belongsTo(User::class, 'receiver_id');
+        return $this->belongsTo(Doctor::class, 'doctor_id');
     }
 }

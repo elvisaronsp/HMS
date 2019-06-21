@@ -40,7 +40,7 @@ class CustomUserSeeder extends Seeder
                 'about' => 'ლორემ იფსუმ',
                 'specialty_id' => rand(1, 5),
                 'phone' => '593757435',
-                'image' => 'https://myblue.bluecrossma.com/sites/g/files/csphws1461/files/inline-images/Doctor%20Image%20Desktop.png'
+                'avatar' => 'https://myblue.bluecrossma.com/sites/g/files/csphws1461/files/inline-images/Doctor%20Image%20Desktop.png'
             ]);
         }
     }
