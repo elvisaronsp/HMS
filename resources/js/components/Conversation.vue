@@ -1,10 +1,7 @@
 <template>
     <div class="conversation">
-        <!-- <h1>{{ contact ? contact.name : 'Select contact' }}</h1> -->
-        <div id="chat-wrapper">
-            <MessagesFeed :contact="contact" :messages="messages" :activeSession="activeSession"/>
-        </div>
-        <MessageComposer @send="sendMessage"/>
+        <MessagesFeed :contact="contact" :messages="messages" :activeSession="activeSession"/>
+        <MessageComposer v-if="contact" @send="sendMessage"/>
     </div>
 </template>
 
@@ -28,7 +25,27 @@ export default {
     },
     methods: {
         sendMessage(text) {
-            console.log('sendMessage method in Conversaion', text)
+            let objForAxios = (activeSession) => {
+                if (this.activeSession == 'user') {
+                    return { 
+                        user_id: this.$parent.user.id,
+                        doctor_id: this.contact.id,
+                        content: text,
+                        sent_by_doctor: 0
+                    }
+                } else {
+                    return {
+                        user_id: this.contact.id,
+                        doctor_id: this.$parent.user.id,
+                        content: text,
+                        sent_by_doctor: 1
+                    }
+                }
+            }
+            axios.post('/conversation/send', objForAxios())
+                .then(response => {
+                    this.$emit('new', response.data)
+                })
         }
     },
     components: { MessagesFeed, MessageComposer }

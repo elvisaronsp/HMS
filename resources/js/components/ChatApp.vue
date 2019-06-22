@@ -8,7 +8,7 @@
             </div>
             
             <div class="col-8">
-                <Conversation :contact="selectedContact" :messages="messages" :activeSession="activeSession"/>
+                <Conversation :contact="selectedContact" :messages="messages" :activeSession="activeSession" @new="saveNewMessage"/>
             </div>   
         </div> 
     </div>
@@ -23,8 +23,7 @@
             user: {
                 type: Object,
                 required: true
-            },
-            
+            },      
         },
         data() {
             return {
@@ -35,47 +34,67 @@
             };
         },
         mounted() {
-            console.log(this.user)
-            console.log('ChatApp Component mounted.')
+            // listen NewMessage event with Echo
+            Echo.channel('messages.' + this.user.id)
+                .listen('NewMessage', event => {
+                    this.handleIncoming(event.message)
+                })
+
+            console.log('logged user',this.user)
+
             // check authorization guard
-            axios.get('/auth').then( userGuard => {
-                
+            axios.get('/auth').then( userGuard => {   
                 if (window.session == 'user') {
-                    console.log('its user session')
-                    axios.post('/doctors').then( doctorList => {
+                    console.log('user session detected')
+                    // fetch doctor list if its user session
+                    axios.post('/doctors').then(doctorList => {
                         this.activeSession = 'user'
                         this.contacts = doctorList.data
                     })
                 } else {
-                    console.log('not user')
-                    
+                    console.log('doctor session detected')
+                    // fetch user list if its doctor's session
                     axios.get(`/doctor/contacts/${this.user.id}`)
                         .then(doctorContacts => {
                             this.activeSession = 'doctor'
                             this.contacts = doctorContacts.data
                         })
-                }
-                
+                }   
             })
         },
         methods: {
             startConversationWith(contact) {
-                if(this.activeSession == 'user') {
+                // fetch messages based on authorised session
+                if (this.activeSession == 'user') {
+                    // messages for user
                     axios.get(`/conversation/with/doctor/${contact.id}/${this.user.id}`)
                         .then( response => {
-                            console.log('startConversationWith', response.data)
                             this.messages = response.data
                             this.selectedContact = contact
                         })
                 } else {
+                    // messages for doctor
                     axios.get(`/conversation/with/user/${contact.id}/${this.user.id}`)
                         .then( response => {
-                            console.log('startConversationWith', response.data)
                             this.messages = response.data
                             this.selectedContact = contact
                         })
                 }
-            }
+            },
+            saveNewMessage(text) {
+                this.messages.push(text)
+            },
+            handleIncoming(message) {
+                if (window.session == 'user') {
+                    if (this.selectedContact && message.doctor_id == this.selectedContact.id) {
+                        this.saveNewMessage(message)
+                    }
+                } else {
+                    if (this.selectedContact && message.user_id == this.selectedContact.id) {
+                        this.saveNewMessage(message)
+                    }
+                }
+            },
         },
         components: { Conversation, ContactsList }
     }

@@ -4,12 +4,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <textarea class="form-control" 
+                    <textarea class="form-control composer" 
                         id="exampleFormControlTextarea1" 
                         rows="3" 
                         name="message_text"
                         v-model="message"
-                        @keydown.enter="send">
+                        @keydown.enter="send"
+                        placeholder="Press Enter to send message">
                     </textarea>
                 </div>
             </div>
@@ -26,7 +27,9 @@ export default {
         }
     },
     methods: {
-        send() {
+        send(event) {
+            event.preventDefault();
+
             if (this.message == '') {
                 return;
             }
@@ -37,4 +40,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.composer {
+    border-radius: 5px;
+}
+</style>
+
 

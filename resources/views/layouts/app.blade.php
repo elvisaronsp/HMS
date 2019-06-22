@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/calendar-theme.css') }}">
 
-    {{-- CDN --}}
+    {{-- simplebar --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
     <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 
@@ -51,13 +51,11 @@
 
 </head>
 <body>
-    
     @yield('nav')
 
     <main>
         @yield('content')
     </main>
-    
     
     @yield('js')
 </body>

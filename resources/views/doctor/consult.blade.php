@@ -13,7 +13,7 @@
     $(function() {
         window.session = 'doctor'
         new SimpleBar(document.getElementById('doctor-list-wrapper'));
-        new SimpleBar(document.getElementById('chat-wrapper'));
+        // new SimpleBar(document.getElementById('chat-wrapper'));
     });
 </script>
 @endsection

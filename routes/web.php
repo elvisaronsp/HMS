@@ -51,5 +51,6 @@ Route::group(['prefix' => 'doctor'], function () {
 Route::post('/doctors', 'DoctorController@getDoctors');
 Route::get('/conversation/with/doctor/{contact_id}/{user_id}', 'ChatController@getMessagesForUser');
 Route::get('/conversation/with/user/{contact_id}/{doctor_id}', 'ChatController@getMessagesForDoctor');
+Route::post('/conversation/send', 'ChatController@send');
 Route::get('/doctor/contacts/{id}', 'ChatController@getDoctorContacts');
 

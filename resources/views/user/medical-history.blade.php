@@ -4,15 +4,14 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-
+                @if(count($medicalHistory) > 0)
                 @foreach ($medicalHistory as $record)
                     <div class="card shadow history-card">
                         <div class="card-body">
                             <div class="row history-wrapper">
                                 <div class="col-4 history-date">
                                     <p>{{ Str::limit($record->time, 5, '') }}
-                                    <p class="history-heading">{{ \Carbon\Carbon::parse($record->date)->format('jS \o\f F Y') }}</p>
-                                    
+                                    <p class="history-heading">{{ \Carbon\Carbon::parse($record->date)->format('jS \o\f F Y') }}</p>    
                                 </div>
 
                                 <div class="col-4 history-time">
@@ -39,6 +38,12 @@
                         </div>
                     </div>
                 @endforeach
+                @else 
+                    <div class=" empty-history justify-content-center">
+                        <img src="/images/searching.png" class="empty-searching" height="500px" width="670px">
+                        <p class="empty-text">No medical records yet</p>
+                    </div>
+                @endif
 
                 <div class="row justify-content-center">
                     {{ $medicalHistory->links() }}
