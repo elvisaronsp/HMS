@@ -18,8 +18,8 @@ class User extends Model
     protected $table = 'users';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
-    // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $guarded = ['id'];
+    // protected $fillable = [];
     protected $hidden = ['password','is_admin'];
     // protected $dates = [];
 
@@ -34,7 +34,10 @@ class User extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function bloodType()
+    {
+        return $this->belongsTo(BloodType::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -46,10 +49,20 @@ class User extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->name} {$this->surname}";
+    }
 
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    public function setAvatarAttribute($value)
+    {
+        $avatarPath = $value->store('avatars', 'public');
+
+        $this->attributes['avatar'] = env('APP_URL') . '/storage/' . $avatarPath;
+    }
 }

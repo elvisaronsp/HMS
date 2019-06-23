@@ -55,11 +55,8 @@ class RegisterController extends Controller
      */
     protected function create(Request $request)
     {
-
-
         ## save photo in avatars
-        $avatarFile = $request->file('avatar')->store('avatars');
-
+        $avatarFile = $request->file('avatar')->store('avatars', 'public');
         ## create user
         return User::create([
             'name' => $request->name,
@@ -71,7 +68,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
             'email' => $request->email,
             'blood_type_id' => $request->bloodtype,
-            'avatar' => $avatarFile
+            'avatar' => asset('storage/'. $avatarFile)
         ]);
     }
 }

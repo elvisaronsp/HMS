@@ -17,9 +17,9 @@ class WorkingHour extends Model
 
     protected $table = 'working_hours';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
-    // protected $guarded = ['id'];
-    protected $fillable = [];
+    public $timestamps = false;
+    protected $guarded = ['id'];
+    // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
 

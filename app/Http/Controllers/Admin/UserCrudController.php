@@ -33,8 +33,81 @@ class UserCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->setFromDb();
+        ## Custom columns;
+        $this->crud->addColumn([
+            'name' => 'name',
+            'label' => "Name",
+        ]);
+        $this->crud->addColumn([
+            'name' => 'surname',
+            'label' => "Surname",
+        ]);
+        $this->crud->addColumn([
+            'name' => 'email',
+            'label' => "Email",
+            'type' => 'email'
+        ]);
+
+        ## Custom fields
+        $this->crud->addField([
+            'name' => 'name',
+            'label' => "Name"
+        ]);
+        $this->crud->addField([
+            'name' => 'surname',
+            'label' => "Surname"
+        ]);
+        $this->crud->addField([
+            'name' => 'birthday',
+            'label' => "Birthday",
+            'type' => 'date'
+        ]);
+        $this->crud->addField([
+            'name' => 'gender',
+            'label' => "Gender",
+            'type' => 'select_from_array',
+            'options' => ['null' => 'Select Gender', 'male' => 'Male', 'female' => 'Female'],
+            'allows_null' => false,
+        ]);
+        $this->crud->addField([
+            'name' => 'phone',
+            'label' => "Phone"
+        ]);
+        $this->crud->addField([
+            'name' => 'address',
+            'label' => "Address"
+        ]);
+        $this->crud->addField([
+            'name' => 'password',
+            'label' => "Password"
+        ]);
+        $this->crud->addField([
+            'name' => 'email',
+            'label' => "Email",
+            'type' => 'email'
+        ]);
+        $this->crud->addField([   // Upload
+            'name' => 'avatar',
+            'label' => 'Avatar',
+            'type' => 'upload',
+            'upload' => true,
+            'disk' => 'public'
+        ]);
+        $this->crud->addField([ // Select2 = 1-n relationship
+            'label' => 'Blood Type',
+            'type' => 'select',
+            'name' => 'blood_type_id', // the db column for the foreign key
+            'entity' => 'bloodType', // the method that defines the relationship in your Model
+            'attribute' => 'title',
+            'model' => "App\Models\BloodType",
+        ]);
+        $this->crud->addField([
+            'name' => 'is_admin',
+            'label' => "Administrator",
+            'type' => 'select_from_array',
+            'options' => ['0' => 'No', '1' => 'Yes',],
+            'allows_null' => false,
+        ]);
 
         // add asterisk for fields that are required in UserRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
@@ -44,6 +117,7 @@ class UserCrudController extends CrudController
     public function store(StoreRequest $request)
     {
         // your additional operations before save here
+        $request->request->set('password', bcrypt($request->password));
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
@@ -53,6 +127,7 @@ class UserCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
+        $request->request->set('password', bcrypt($request->password));
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry

@@ -18,8 +18,8 @@ class Appointment extends Model
     protected $table = 'appointments';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
-    // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $guarded = ['id'];
+    // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,6 +34,20 @@ class Appointment extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class, 'doctor_id');
+    }
+
+    public function prescription()
+    {
+        return $this->hasOne(Prescription::class, 'appointment_id');
+    }
 
     /*
     |--------------------------------------------------------------------------

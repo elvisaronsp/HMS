@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\WorkingHourRequest as StoreRequest;
-use App\Http\Requests\WorkingHourRequest as UpdateRequest;
+use App\Http\Requests\BloodTypeRequest as StoreRequest;
+use App\Http\Requests\BloodTypeRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
 
 /**
- * Class WorkingHourCrudController
+ * Class BloodTypeCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class WorkingHourCrudController extends CrudController
+class BloodTypeCrudController extends CrudController
 {
     public function setup()
     {
@@ -23,27 +23,20 @@ class WorkingHourCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\WorkingHour');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/workingHour');
-        $this->crud->setEntityNameStrings('Working Hour', 'Working Hour');
+        $this->crud->setModel('App\Models\BloodType');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/bloodtype');
+        $this->crud->setEntityNameStrings('bloodtype', 'blood_types');
 
         /*
         |--------------------------------------------------------------------------
         | CrudPanel Configuration
         |--------------------------------------------------------------------------
         */
-        $this->crud->addColumn([
-            'name' => 'time',
-            'label' => "Time"
-        ]);
 
-        $this->crud->addField([
-            'name' => 'time',
-            'label' => "Time",
-            'type' => 'time'
-        ]);
+        // TODO: remove setFromDb() and manually define Fields and Columns
+        $this->crud->setFromDb();
 
-        // add asterisk for fields that are required in WorkingHourRequest
+        // add asterisk for fields that are required in BloodTypeRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }
