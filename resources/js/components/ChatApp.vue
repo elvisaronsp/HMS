@@ -1,5 +1,9 @@
 <template>
     <div class="chat-app">
+        <div class="empty-contacts" v-if="this.contacts.length == 0">
+            <h3 style="text-align: center" >No patient contacts</h3>
+        </div>
+
         <div class="row justify-content-center">
             <div class="col-4">
                 <div id="doctor-list-wrapper">

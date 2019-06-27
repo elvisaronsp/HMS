@@ -23,6 +23,7 @@ class CreateDoctors extends Migration
             $table->integer('specialty_id')->unsigned();
             $table->string('phone');
             $table->string('avatar');
+            $table->date('last_login')->nullable();
             $table->timestamps();
         });
     }

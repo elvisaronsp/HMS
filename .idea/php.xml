@@ -79,6 +79,31 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-cached-adapter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/backpack/crud" />
+      <path value="$PROJECT_DIR$/vendor/backpack/generators" />
+      <path value="$PROJECT_DIR$/vendor/backpack/base" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-elfinder" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/elfinder-flysystem-driver" />
+      <path value="$PROJECT_DIR$/vendor/prologue/alerts" />
+      <path value="$PROJECT_DIR$/vendor/laracasts/generators" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/studio-42/elfinder" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/nothingworks/blade-svg" />
+      <path value="$PROJECT_DIR$/vendor/venturecraft/revisionable" />
+      <path value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte" />
+      <path value="$PROJECT_DIR$/vendor/creativeorange/gravatar" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

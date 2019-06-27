@@ -18,8 +18,8 @@ class Prescription extends Model
     protected $table = 'prescriptions';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
-    // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $guarded = ['id'];
+    // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -28,12 +28,20 @@ class Prescription extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function getAppointmentLink()
+    {
+        return '<a href="appointment/' . $this->appointment_id . '/edit" target="_blank">' . $this->id . '</a>';
+    }
 
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function appointment()
+    {
+        return $this->belongsTo(Appointment::class, 'appointment_id');
+    }
 
     /*
     |--------------------------------------------------------------------------

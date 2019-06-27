@@ -60,7 +60,7 @@ class UserCrudController extends CrudController
         $this->crud->addField([
             'name' => 'birthday',
             'label' => "Birthday",
-            'type' => 'date'
+            'type' => 'date_picker',
         ]);
         $this->crud->addField([
             'name' => 'gender',
@@ -127,7 +127,6 @@ class UserCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
-        $request->request->set('password', bcrypt($request->password));
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry

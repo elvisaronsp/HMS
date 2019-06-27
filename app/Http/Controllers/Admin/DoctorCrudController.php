@@ -80,7 +80,6 @@ class DoctorCrudController extends CrudController
         $this->crud->addField([
             'name' => 'password',
             'label' => "Password",
-            'type' => 'password'
         ]);
         $this->crud->addField([   // Upload
             'name' => 'avatar',
@@ -123,7 +122,6 @@ class DoctorCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
-        $request->request->set('password', bcrypt($request->password));
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry

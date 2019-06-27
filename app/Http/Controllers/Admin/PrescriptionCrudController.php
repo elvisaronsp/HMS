@@ -32,9 +32,42 @@ class PrescriptionCrudController extends CrudController
         | CrudPanel Configuration
         |--------------------------------------------------------------------------
         */
+        $this->crud->addColumn([
+            'name' => 'treatment',
+            'label' => "Treatment",
+        ]);
+        $this->crud->addColumn([
+            'name' => 'diagnosis',
+            'label' => "Diagnosis",
+        ]);
+        $this->crud->addColumn([
+            // run a function on the CRUD model and show its return value
+            'name' => "appointment_id",
+            'label' => "Appointment N#", // Table column heading
+            'type' => "model_function",
+            'function_name' => 'getAppointmentLink', // the method in your Model
+            'function_parameters' => ['appointment_id'], // pass one/more parameters to that method
+            // 'limit' => 100, // Limit the number of characters shown
+        ]);
 
-        // TODO: remove setFromDb() and manually define Fields and Columns
-        $this->crud->setFromDb();
+        $this->crud->addField([ // Select2 = 1-n relationship
+            'label' => 'Appointment',
+            'type' => 'select2',
+            'name' => 'appointment_id', // the db column for the foreign key
+            'entity' => 'appointment', // the method that defines the relationship in your Model
+            'attribute' => 'date_time',
+            'model' => "App\Models\Appointment",
+        ]);
+        $this->crud->addField([
+            'name' => 'diagnosis',
+            'label' => "Diagnosis",
+            'type' => 'wysiwyg'
+        ]);
+        $this->crud->addField([
+            'name' => 'treatment',
+            'label' => "Treatment",
+            'type' => 'wysiwyg'
+        ]);
 
         // add asterisk for fields that are required in PrescriptionRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');

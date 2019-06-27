@@ -5,6 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
 
+                @if (count($archived) > 0)
                 @foreach ($archived as $record)
                     <div class="card shadow history-card">
                         <div class="card-body">
@@ -39,6 +40,12 @@
                         </div>
                     </div>
                 @endforeach
+                @else 
+                <div class=" empty-history justify-content-center">
+                    <img src="/images/searching.png" class="empty-searching" height="500px" width="670px">
+                    <p class="empty-text">No achived records yet</p>
+                </div> 
+                @endif
 
                 <div class="row justify-content-center">
                     {{ $archived->links() }}

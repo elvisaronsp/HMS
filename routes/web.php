@@ -14,7 +14,7 @@ Route::get('/auth', function() {
 Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'user'], function () {
-    Route::get('/dashboard', 'UserController@index')->name('user.dashboard')->middleware('verified');
+    Route::get('/dashboard', 'UserController@index')->middleware('verified');
     Route::get('/appointments', 'AppointmentController@showAppointmentForm')->name('user.appointment.show');
     Route::post('/appointments/check/date', 'AppointmentController@checkFreeTimesByDate')->name('user.appointment.check.date');
     Route::post('/appointments/reserve', 'AppointmentController@reserve')->name('user.make.reservation');
@@ -35,6 +35,7 @@ Route::group(['prefix' => 'doctor'], function () {
     Route::post('/reset/{token}', 'Auth\DoctorPasswordController@resetPassword')->name('doctor.update.password');
 
     Route::group(['middleware' => ['auth:doctor']], function () {
+        Route::post('/first/login', 'DoctorController@firstLogin');
         Route::get('/dashboard', 'DoctorController@index')->name('doctor.dashboard');
         Route::get('/appointments', 'DoctorController@appointmentsForToday')->name('doctor.appointments.today');
         Route::get('/prescription/{id}', 'PrescriptionController@showToDoctor')->name('doctor.show.prescription');

@@ -17,8 +17,8 @@ class AdminSeeder extends Seeder
         ## check existence
         if(!$admin) {
             App\User::insert([
-                'name' => 'გიორგი',
-                'surname' => 'გელაშვილი',
+                'name' => 'Admin',
+                'surname' => 'Admin',
                 'birthday' => '12-01-1997',
                 'gender' => 'male',
                 'phone' => '593757435',

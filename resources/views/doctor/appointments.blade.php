@@ -4,7 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
+                <h3 style="text-align:center">Today's Appointments</h3>
 
+                @if (count($appointmentForToday) > 0)
                 @foreach ($appointmentForToday as $record)
                     <div class="card shadow history-card">
                         <div class="card-body">
@@ -41,6 +43,9 @@
                         </div>
                     </div>
                 @endforeach
+                @else 
+
+                @endif
 
                 <div class="row justify-content-center">
                     {{-- {{ $medicalHistory->links() }} --}}

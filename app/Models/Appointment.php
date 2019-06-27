@@ -28,6 +28,10 @@ class Appointment extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function getPrescriptionLink()
+    {
+        return '<a href="prescription/' . $this->prescription_id . '/edit" target="_blank">' . $this->id . '</a>';
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -60,6 +64,10 @@ class Appointment extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+    public function getDateTimeAttribute()
+    {
+        return " {$this->doctor->name} | {$this->user->full_name} | {$this->date} | {$this->time}";
+    }
 
     /*
     |--------------------------------------------------------------------------
