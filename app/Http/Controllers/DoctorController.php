@@ -9,6 +9,7 @@ use App\Appointment;
 use App\Doctor;
 use App\Http\Requests\FirstDoctorLoginRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Endorsement;
 
 class DoctorController extends Controller
 {
@@ -21,7 +22,8 @@ class DoctorController extends Controller
             ## fetch single upcoming doctor appointments
             $upcomingAppointment = Auth::user()
                 ->appointments()
-                ->where('date', '>=', Carbon::now())
+                ->where('date', '>=', Carbon::now()->toDateString())
+                ->orderBy('date', 'asc')
                 ->with('user')
                 ->first();
 
@@ -29,6 +31,16 @@ class DoctorController extends Controller
             // return $upcomingAppointment;
             return view('doctor.dashboard', compact('upcomingAppointment'));
         }
+    }
+
+    public function profile($id)
+    {
+        $doctor = Doctor::with('specialty')->find($id);
+        $endorsement = $doctor->rating();
+        $userId = Auth::user()->id;
+        $hasEndorsed = Endorsement::where('user_id', $userId)->where('doctor_id', $doctor->id)->first();
+
+        return view('doctor.profile', compact('doctor', 'endorsement', 'userId', 'hasEndorsed'));
     }
 
     public function firstLogin(FirstDoctorLoginRequest $request)
@@ -54,6 +66,7 @@ class DoctorController extends Controller
         $appointmentForToday = Auth::user()
             ->appointments()
             ->where('date', Carbon::now()->toDateString())
+            ->orderBy('time', 'asc')
             ->with('user', 'prescription')
             ->get();
 
@@ -65,8 +78,9 @@ class DoctorController extends Controller
     {
         ## fetch archived appointments
         $archived = Appointment::where('date', '<', Carbon::now()->toDateString())
+            ->orderBy('date', 'desc')
             ->paginate(4);
-        
+
         return view('doctor.archive', compact('archived'));
     }
 

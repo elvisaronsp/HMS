@@ -20,7 +20,9 @@
                                     </h5>
 
                                     <p class="card-text">
-                                        {{ $upcomingAppointment->doctor->name }} {{ $upcomingAppointment->doctor->surname }}
+                                        <a href="../doctor/profile/{{ $upcomingAppointment->doctor->id }}" target="_blank" style="color:#3D385D">
+                                            {{ $upcomingAppointment->doctor->name }} {{ $upcomingAppointment->doctor->surname }}
+                                        </a>
                                     </p>
 
                                     <p class="card-text appointment-time">
@@ -34,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                @else 
+                @else
                     <div class="row justify-content-center">
                         <img src="/images/appointment-empty.png" height="250px" width="400px">
                         <p style="color: #546E7A">You don't have appointments yet</p>
@@ -45,7 +47,7 @@
             <div class="shadow-lg calendar-card">
                 <div id="caleandar"></div>
             </div>
-            
+
         </div>
     </div>
 @endsection
@@ -54,19 +56,19 @@
 <script>
     $( document ).ready(function() {
         let events = []
-        
+
         let userDates = {!! $futureAppointments !!}
 
         userDates.forEach(element => {
             console.log(moment(element.date))
-            events.push({ 
+            events.push({
                 Date: new Date(moment(element.date)),
                 Title: 'Doctor appointment at ' + element.time.substring(0, 5),
                 Link: "https://hms.test"
             })
         });
-        
-    
+
+
     var settings = {};
     var element = document.getElementById("caleandar");
     caleandar(element, events, settings);

@@ -25,8 +25,9 @@ class UserController extends Controller
         ## fetch single upcoming user appointments
         $upcomingAppointment = Auth::user()
             ->appointments()
-            ->where('date', '>=', Carbon::now())
+            ->where('date', '>=', Carbon::now()->toDateString())
             ->with('doctor', 'doctor.specialty')
+            ->orderBy('date', 'asc')
             ->first();
 
         ## fetch all future user appointments
@@ -35,7 +36,7 @@ class UserController extends Controller
             ->where('date', '>=', Carbon::now())
             ->with('doctor', 'doctor.specialty')
             ->get();
-        
+
         return view('user.dashboard', compact('upcomingAppointment', 'futureAppointments'));
     }
 }

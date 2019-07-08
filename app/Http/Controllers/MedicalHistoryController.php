@@ -15,8 +15,9 @@ class MedicalHistoryController extends Controller
             ->appointments()
             ->with('prescription', 'doctor')
             ->where('date', '<', Carbon::now())
+            ->orderBy('date', 'desc')
             ->paginate(4);
-        
+
             // return $medicalHistory;
         return view('user.medical-history', compact('medicalHistory'));
     }

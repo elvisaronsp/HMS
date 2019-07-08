@@ -16,7 +16,7 @@
     <script src="{{ asset('js/calendar.min.js') }}" defer></script>
     <script src="{{ asset('js/moment.min.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/7c5c26e46f.js"></script>
-    
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -46,6 +46,9 @@
     <!-- Pusher CDN -->
     <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
 
+    <link  href="{{ asset('css/datepicker.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/datepicker.min.js') }}"></script>
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
@@ -56,7 +59,7 @@
     <main>
         @yield('content')
     </main>
-    
+
     @yield('js')
 </body>
 </html>

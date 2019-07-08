@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@chenfengyuan/datepicker": "^1.0.8",
         "laravel-echo": "^1.5.3",
         "pusher-js": "^4.4.0"
     }

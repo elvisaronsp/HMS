@@ -34,6 +34,8 @@ Route::group(['prefix' => 'doctor'], function () {
     Route::get('/reset/{token}', 'Auth\DoctorPasswordController@showPasswordResetForm');
     Route::post('/reset/{token}', 'Auth\DoctorPasswordController@resetPassword')->name('doctor.update.password');
 
+    Route::get('/profile/{id}', 'DoctorController@profile');
+
     Route::group(['middleware' => ['auth:doctor']], function () {
         Route::post('/first/login', 'DoctorController@firstLogin');
         Route::get('/dashboard', 'DoctorController@index')->name('doctor.dashboard');
@@ -46,6 +48,7 @@ Route::group(['prefix' => 'doctor'], function () {
 
         Route::post('/logout', 'Auth\DoctorAuthController@logout')->name('doctor.logout');
     });
+
 });
 
 // routes for vue API
@@ -54,4 +57,6 @@ Route::get('/conversation/with/doctor/{contact_id}/{user_id}', 'ChatController@g
 Route::get('/conversation/with/user/{contact_id}/{doctor_id}', 'ChatController@getMessagesForDoctor');
 Route::post('/conversation/send', 'ChatController@send');
 Route::get('/doctor/contacts/{id}', 'ChatController@getDoctorContacts');
+
+Route::post('/endorse', 'EndorsementController@endorse');
 

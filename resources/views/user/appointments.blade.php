@@ -19,7 +19,7 @@
                             </div>
 
                             <label for="date">Date</label>
-                            <input type="date" class="form-control datepicker" name="date" id="date">
+                            <input type="date" class="form-control datepicker" name="date" id="date" min="{{ $today }}">
 
                             <input type="submit" class="btn btn-primary appoint-check-btn" value="Check">
                         </form>
@@ -32,7 +32,8 @@
 
 @section('js')
     <script>
-
-
+        $(function() {
+            console.log( "ready!" );
+        });
     </script>
 @endsection

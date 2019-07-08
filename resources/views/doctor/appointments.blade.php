@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <h3 style="text-align:center">Today's Appointments</h3>
+                <h3 style="text-align:center;margin-bottom:20px;">Today's Appointments</h3>
 
                 @if (count($appointmentForToday) > 0)
                 @foreach ($appointmentForToday as $record)

@@ -33,4 +33,9 @@ class Doctor extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'endorsements')->using(Endorsement::class)->as('endorsement_taken');
     }
+
+    public function rating()
+    {
+        return $this->endorsements()->count();
+    }
 }

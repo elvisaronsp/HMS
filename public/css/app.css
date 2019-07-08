@@ -10736,6 +10736,27 @@ a.text-dark:focus {
   border-radius: 10px;
 }
 
+.endorse-btn,
+.endorse-disabled {
+  margin: 0 auto;
+  display: block;
+  margin-top: 20px;
+}
+
+.doctor-box {
+  margin: 0 auto;
+  padding: 50px;
+}
+
+#endorse-box {
+  margin-left: 20px;
+  font-size: 16px;
+  border: 1px solid green;
+  border-radius: 10px;
+  padding: 8px;
+  color: green;
+}
+
 .calendar-card {
   padding: 20px;
   border-radius: 5px;
