@@ -11,7 +11,7 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="{{ $upcomingAppointment->doctor->avatar }}" class="card-img" style="border-radius: 50%;">
+                                <img src="{{ $upcomingAppointment->doctor->avatar }}" class="card-img" style="border-radius: 50%;height:200px;width:200px;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body" style="margin-left: 15px;">

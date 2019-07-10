@@ -21,7 +21,9 @@ class Doctor extends Authenticatable
 
     public function workingHours()
     {
-        return $this->belongsToMany(WorkingHour::class, 'doctor_working_hours', 'doctor_id')->pluck('time');
+        return $this->belongsToMany(WorkingHour::class, 'doctor_working_hours', 'doctor_id')
+            ->orderBy('time', 'asc')
+            ->pluck('time');
     }
 
     public function specialty()

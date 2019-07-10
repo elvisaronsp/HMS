@@ -10,12 +10,12 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="/user/dashboard" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="/user/dashboard" class="nav-link">Dashboard</a></li>
                     <li class="nav-item"><a href="/user/appointments" class="nav-link">Appointments</a></li>
                     <li class="nav-item"><a href="/user/medical-history" class="nav-link">Medical History</a></li>
                     <li class="nav-item"><a href="/user/consult" class="nav-link">Consult</a></li>
-                    
-                    
+
+
                     <li class="nav-item cta">
                         <a href="{{ route('logout') }}"
                            class="nav-link"

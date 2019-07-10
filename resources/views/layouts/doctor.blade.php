@@ -10,7 +10,7 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="/doctor/dashboard" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="/doctor/dashboard" class="nav-link">Dashboard</a></li>
                     <li class="nav-item"><a href="/doctor/appointments" class="nav-link">Appointments</a></li>
                     <li class="nav-item"><a href="/doctor/appointments/archive" class="nav-link">Archive</a></li>
                     <li class="nav-item"><a href="/doctor/consult" class="nav-link">Consult</a></li>
